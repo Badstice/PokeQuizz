@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Quizz pokémon !?</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="pokemon lecture" />
+    <meta name="keywords" content="html, css, javascript" />
+    <meta name="author" content="Baptiste Dozias" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="divPoints"></div>
+      <div id="quizz-container">
+        <div id="img-container">
+          <img src="" alt="pokemon" />
+        </div>
+        <div id="txt-container">
+          <div id="question-container">
+            <p>Quel est ce pokémon</p>
+          </div>
+          <div id="response-container">
+            <div
+              class="btn"
+              id="btn-response-1"
+              data-type="txt"
+              data-value=""
+              data-selected="false"
+            >
+              <img src="" />
+              <p></p>
+            </div>
+            <div
+              class="btn"
+              id="btn-response-2"
+              data-type="txt"
+              data-value=""
+              data-selected="false"
+            >
+              <img src="" />
+              <p></p>
+            </div>
+            <div
+              class="btn"
+              id="btn-response-3"
+              data-type="txt"
+              data-value=""
+              data-selected="false"
+            >
+              <img src="" />
+              <p></p>
+            </div>
+            <div
+              class="btn"
+              id="btn-response-4"
+              data-type="txt"
+              data-value=""
+              data-selected="false"
+            >
+              <img src="" />
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="button-container">
+        <div id="btn-main"><p>Valider</p></div>
+      </div>
+    </main>
+    <script src="scripts/tools.js"></script>
+    <script src="scripts/variables.js"></script>
+    <script src="scripts/question.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/speak.js"></script>
+    <script src="scripts/question.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/event.js"></script>
+    <script>
+      (async () => {
+        await api.initData();
+        nextQuestion();
+      })();
+    </script>
+  </body>
+</html>

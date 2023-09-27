@@ -1,0 +1,463 @@
+:root {
+  --acier: grey;
+  --combat: brown;
+  --dragon: darkblue;
+  --eau: blue;
+  --electrique: yellow;
+  --fantome: darkviolet;
+  --fee: pink;
+  --feu: red;
+  --glace: azure;
+  --insecte: lightgreen;
+  --normal: lightgrey;
+  --roche: darkred;
+  --plante: green;
+  --poison: violet;
+  --psy: pink;
+  --sol: darkorange;
+  --tenebre: black;
+  --vol: lightblue;
+}
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#points {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+main {
+  display: block;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.evolution-container {
+  overflow: hidden;
+  height: 100vh;
+  width: 310vw;
+  position: relative;
+}
+
+.card-container {
+  border: 10px solid black;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 1%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bg {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+  background-position: top center;
+  background-size: contain;
+}
+
+.bg[data-type="Acier"] {
+  background-color: var(--acier);
+}
+
+.bg[data-type="Combat"] {
+  background-color: var(--dragon);
+}
+
+.bg[data-type="Dragon"] {
+  background-color: var(--dragon);
+}
+
+.bg[data-type="Eau"] {
+  background-color: var(--eau);
+}
+
+.bg[data-type="Électrik"] {
+  background-color: var(--electrique);
+}
+
+.bg[data-type="Fantome"] {
+  background-color: var(--fanrome);
+}
+
+.bg[data-type="Fee"] {
+  background-color: var(--fee);
+}
+
+.bg[data-type="Feu"] {
+  background-color: var(--feu);
+}
+
+.bg[data-type="Glace"] {
+  background-color: var(--glace);
+}
+
+.bg[data-type="Insecte"] {
+  background-color: var(--insecte);
+}
+
+.bg[data-type="Normal"] {
+  background-color: var(--normal);
+}
+
+.bg[data-type="Roche"] {
+  background-color: var(--roche);
+}
+
+.bg[data-type="Plante"] {
+  background-color: var(--plante);
+}
+
+.bg[data-type="Poison"] {
+  background-color: var(--poison);
+}
+
+.bg[data-type="Psy"] {
+  background-color: var(--psy);
+}
+
+.bg[data-type="Sol"] {
+  background-color: var(--sol);
+}
+
+.bg[data-type="Tenebre"] {
+  background-color: var(--tenebre);
+}
+
+.bg[data-type="Vol"] {
+  background-color: var(--vol);
+}
+
+.card {
+  width: 90%;
+  height: 95%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.pokemon-img-container {
+  position: relative;
+  border: 14px inset gold;
+  border-radius: 10%;
+  width: 90%;
+  height: 50%;
+  overflow: visible;
+  outline: 5px solid gold;
+  z-index: 1;
+  background-color: white;
+}
+
+.pokemon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
+}
+
+.number-container {
+  position: absolute;
+  left: 5px;
+  top: -19px;
+  height: 22px;
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  z-index: 10;
+  border-radius: 10%;
+}
+
+.generation {
+  font-weight: bolder;
+  margin: 0 5px;
+}
+
+.pokeId {
+  font-weight: bolder;
+  margin: 0 5px;
+}
+
+.types-container {
+  position: absolute;
+  right: 5px;
+  top: -32px;
+  height: 50px;
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  z-index: 10;
+}
+
+img.type {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  outline: 2px outset lightgrey;
+}
+
+img.type[data-type="Acier"] {
+  border: 5px inset var(--acier);
+}
+
+img.type[data-type="Combat"] {
+  border: 5px inset var(--combat);
+}
+
+img.type[data-type="Dragon"] {
+  border: 5px inset var(--eau);
+}
+
+img.type[data-type="Eau"] {
+  border: 5px inset var(--eau);
+}
+
+img.type[data-type="Électrik"] {
+  border: 5px inset var(--electrique);
+}
+
+img.type[data-type="Fantome"] {
+  border: 5px inset var(--fantome);
+}
+
+img.type[data-type="Fee"] {
+  border: 5px inset var(--fee);
+}
+
+img.type[data-type="Feu"] {
+  border: 5px inset var(--feu);
+}
+
+img.type[data-type="Glace"] {
+  border: 5px inset var(--glace);
+}
+
+img.type[data-type="Insecte"] {
+  border: 5px inset var(--insecte);
+}
+
+img.type[data-type="Normal"] {
+  border: 5px inset var(--normal);
+}
+
+img.type[data-type="Roche"] {
+  border: 5px inset var(--roche);
+}
+
+img.type[data-type="Plante"] {
+  border: 5px inset var(--plante);
+}
+
+img.type[data-type="Poison"] {
+  border: 5px inset var(--poison);
+}
+
+img.type[data-type="Psy"] {
+  border: 5px inset var(--psy);
+}
+
+img.type[data-type="Sol"] {
+  border: 5px inset var(--sol);
+}
+
+img.type[data-type="Tenebre"] {
+  border: 5px inset var(--tenebre);
+}
+
+img.type[data-type="Vol"] {
+  border: 5px inset var(--vol);
+}
+
+.response-container {
+  width: 100%;
+  height: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.response-container.end {
+  background-color: green;
+}
+
+.response-container .syllabe {
+  height: 100%;
+  width: 100%;
+  font-size: xx-large;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.response-container.end .syllabe {
+  width: auto;
+  transition: all 1s;
+  border: none;
+  font-weight: bolder;
+  color: black;
+  pointer-events: none;
+}
+
+.response-container.end .syllabe:first-child {
+  text-transform: capitalize;
+}
+
+.response-container .good {
+  color: green;
+}
+
+.response-container .bad {
+  color: red;
+}
+
+.input-container {
+  width: 100%;
+  height: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.input-container .syllabe {
+  height: 100%;
+  width: 100%;
+  margin: 5%;
+  font-size: xx-large;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 20%;
+  border: 5px white outset;
+  box-shadow: 2px 2px 2px black;
+  transition: all 0.5s;
+  background-color: white;
+}
+
+.input-container .syllabe[data-end="true"] {
+  pointer-events: none;
+  background-color: lightgrey;
+  border: 5px white inset;
+  box-shadow: 0px 0px 0px black;
+  transition: all 1s;
+}
+
+.information-container {
+  width: 100%;
+  height: 20%;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  visibility: hidden;
+}
+
+.end .information-container {
+  visibility: visible;
+  transition: all 1s;
+}
+
+.shiny {
+  height: 100%;
+  object-fit: contain;
+}
+
+.information {
+  visibility: hidden;
+}
+
+.end .information {
+  visibility: visible;
+  position: absolute;
+  bottom: -7vw;
+  right: -7vw;
+  z-index: 10;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: blue;
+  color: white;
+  font-size: xx-large;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 100%;
+  border: 5px outset white;
+  outline: 2px solid white;
+  font-weight: bolder;
+}
+
+.resistances-container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+.forces,
+.weakness {
+  display: flew;
+  flex-flow: row wrap;
+}
+
+.forces {
+  background-color: green;
+}
+
+.weakness {
+  background-color: red;
+}
+
+.resistances-container img.type {
+  width: 9vw;
+  height: 9vw;
+  pointer-events: none;
+}
