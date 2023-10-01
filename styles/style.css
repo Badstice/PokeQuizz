@@ -34,11 +34,6 @@ main {
   align-content: center;
 }
 
-#txt-container {
-  width: 100%;
-  height: 100%;
-}
-
 #question-container {
   display: flex;
   flex-flow: row nowrap;
@@ -101,4 +96,17 @@ main {
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+
+#btn-main[data-state="valider"] p:last-child,
+#btn-main[data-state="next"] p:first-child,
+#btn-main[data-state="hide"] {
+  display: none;
+}
+
+#btn-main p,
+.btn p,
+.btn img,
+#question-container p {
+  pointer-events: none;
 }

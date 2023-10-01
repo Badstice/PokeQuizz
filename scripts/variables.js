@@ -5,7 +5,7 @@ const main = document.querySelector("main"),
   questionP = document.querySelector("#question-container p"),
   btnResponses = [...document.querySelectorAll("#response-container div")],
   responsesP = [...document.querySelectorAll("#response-container div p")],
-  btn = document.querySelector("#button-container"),
+  mainBtn = document.querySelector("#btn-main"),
   divPoints = document.getElementById("divPoints");
 
 const answers = [];
