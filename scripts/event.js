@@ -9,7 +9,7 @@ function resetResponse() {
   }
   for (const btn of btnResponses) {
     btn.dataset.selected = false;
-    btn.classList.remove("green", "bad");
+    btn.classList.remove("green", "red");
   }
   mainBtn.dataset.state = "hide";
 }
@@ -50,14 +50,40 @@ document.addEventListener("click", (evt) => {
 });
 
 function showResponse() {
+  var isGood = true;
   for (const btn of btnResponses) {
     if (btn.dataset.selected === "true" && btn.dataset.isGood === "true") {
+      btn.classList.add("green");
+    } else if (
+      btn.dataset.selected === "false" &&
+      btn.dataset.isGood === "true"
+    ) {
+      isGood = false;
       btn.classList.add("green");
     } else if (
       btn.dataset.selected === "true" &&
       btn.dataset.isGood === "false"
     ) {
+      isGood = false;
       btn.classList.add("red");
     }
+  }
+
+  if (isGood) {
+    speak("Bravo");
+    speak(
+      `Tu as donné ${
+        currentQuestion.goods.length > 1 ? "les" : "la"
+      } bonne réponse`
+    );
+  } else {
+    speak("Dommage");
+    speak(
+      `${currentQuestion.goods.length > 1 ? "les" : "la"} bonne réponse était`
+    );
+    currentQuestion.getGoods().forEach((good, i, ar) => {
+      speak(good);
+      if (i < ar.length - 1) speak("et");
+    });
   }
 }

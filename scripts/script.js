@@ -1,4 +1,5 @@
 function nextQuestion() {
+  synth.cancel();
   resetResponse();
   const pokemon = api.nextPokemon();
   pokeImg.src = pokemon.sprites.regular;
